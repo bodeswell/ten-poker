@@ -115,7 +115,7 @@ timePlayer s tableName = do
 runPlayerTimer
   :: TVar ServerState -> TableName -> Game -> PlayerName -> IO (Async ())
 runPlayerTimer s tableName gameWhenTimerStarts plyrName = async $ do
-  threadDelay (3 * 1000000) -- 30 seconds
+  threadDelay (120 * 1000000) -- 120 seconds
   mbTable <- atomically $ getTable s tableName
   case mbTable of
     Nothing         -> return ()
